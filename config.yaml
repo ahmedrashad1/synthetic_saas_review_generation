@@ -1,0 +1,88 @@
+domain:
+  name: "SaaS task management tool"
+  keywords:
+    - "tasks"
+    - "projects"
+    - "workflow"
+    - "dashboard"
+    - "integration"
+    - "notifications"
+    - "permissions"
+    - "reporting"
+    - "automation"
+    - "templates"
+
+generation:
+  target_accepted: 400
+  max_attempts: 2000
+  min_chars: 140
+  max_chars: 520
+  rating_distribution:
+    "5": 0.35
+    "4": 0.30
+    "3": 0.18
+    "2": 0.10
+    "1": 0.07
+  personas:
+    - name: "Junior developer"
+      style_notes: "simple language, mentions learning curve, onboarding"
+    - name: "Senior backend engineer"
+      style_notes: "mentions API, integrations, reliability, performance"
+    - name: "Product manager"
+      style_notes: "mentions roadmap, reporting, collaboration, stakeholders"
+    - name: "QA engineer"
+      style_notes: "mentions bugs, edge cases, regression, stability"
+    - name: "Startup founder"
+      style_notes: "mentions pricing, speed, team productivity, scale"
+    - name: "Operations manager"
+      style_notes: "mentions permissions, approvals, audit trails, automation"
+
+models:
+  - provider: "openai"
+    model: "gpt-4o-mini"
+    temperature: 0.8
+    max_tokens: 400
+
+  - provider: "anthropic"
+    model: "claude-sonnet-4-0"
+    temperature: 0.8
+    max_tokens: 400
+
+embeddings:
+  provider: "openai"
+  model: "text-embedding-3-small"
+
+guardrails:
+
+  semantic_similarity:
+    method: "embeddings_cosine"
+    threshold: 0.90
+
+  vocabulary_overlap:
+    threshold: 0.60
+
+
+  sentiment:
+    low_rating_positive_cutoff: 0.20
+    high_rating_negative_cutoff: -0.05
+    max_positive_ratio: 0.85
+    min_negative_ratio: 0.05
+
+  realism:
+    min_keyword_hits: 2
+    require_drawback_for_high_ratings: true
+
+    drawback_markers:
+      - "but"
+      - "however"
+      - "although"
+      - "though"
+      - "issue"
+      - "problem"
+      - "limitation"
+
+outputs:
+  dataset_path: "outputs/synthetic_reviews.jsonl"
+  report_path: "outputs/quality_report.md"
+  run_log_path: "outputs/run_log.json"
+  real_reviews_path: "real_data/real_reviews.json"

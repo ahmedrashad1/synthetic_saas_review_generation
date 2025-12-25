@@ -1,0 +1,12 @@
+{
+  "openai": {
+    "accepted": 238,
+    "rejected": 499,
+    "time": 2046.1788070201874
+  },
+  "anthropic": {
+    "accepted": 162,
+    "rejected": 602,
+    "time": 3453.6921956539154
+  }
+}

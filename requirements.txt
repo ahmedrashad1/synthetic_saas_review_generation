@@ -1,0 +1,7 @@
+pyyaml
+numpy
+scikit-learn
+tqdm
+openai
+anthropic
+textblob
