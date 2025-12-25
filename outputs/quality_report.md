@@ -9,11 +9,11 @@
 - negative: 3.50%
 
 ## Rating Distribution
-- 3 stars: 26.00%
-- 5 stars: 24.75%
-- 4 stars: 24.50%
-- 1 stars: 7.75%
+- 1 star: 7.75%
 - 2 stars: 17.00%
+- 3 stars: 26.00%
+- 4 stars: 24.50%
+- 5 stars: 24.75%
 
 ## Persona Distribution
 - QA engineer: 25.25%
