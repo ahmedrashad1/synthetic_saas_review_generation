@@ -28,6 +28,9 @@ from analysis.report import generate_report
 
 
 def weighted_choice(distribution: dict) -> int:
+    """
+    Sample a rating according to a predefined probability distribution.
+    """
     r = random.random()
     cumulative = 0.0
     for rating, prob in distribution.items():
@@ -56,6 +59,10 @@ Rules:
 
 
 def main():
+    """
+    Orchestrates the full synthetic data pipeline:
+    generation → filtering → analysis → reporting.
+    """
     cfg = yaml.safe_load(open("config.yaml"))
     os.makedirs(os.path.dirname(cfg["outputs"]["dataset_path"]), exist_ok=True)
     target = cfg["generation"]["target_accepted"]
